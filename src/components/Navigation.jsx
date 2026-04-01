@@ -18,7 +18,7 @@ const Navigation = ({ activeSection, scrollToSection }) => {
 
   const navItems = [
   { id: 'home', label: 'Home' },
-  { id: 'introduction', label: 'About' },  // ← ADD THIS LINE
+  { id: 'introduction', label: 'About' },  
   { id: 'services', label: 'Services' },
   { id: 'skills', label: 'Skills' },
   { id: 'work', label: 'Work' },
