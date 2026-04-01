@@ -1,6 +1,7 @@
 // src/components/Hero.jsx
 import React, { useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
+import heroBg from '../assets/heroBg.jpg'; // 👈 Add your image to src/assets/
 
 const Hero = ({ scrollToSection }) => {
   const [typedText, setTypedText] = useState('');
@@ -11,12 +12,12 @@ const Hero = ({ scrollToSection }) => {
   const fullText = "Hi, I'm Augustine";
   
   const taglines = [
-    { text: "Building scalable web applications that ", highlight: "drive results" },
-    { text: "Transforming your ideas into digital ", highlight: "solutions" },
-    { text: "Creating full-stack applications with ", highlight: "MERN Stack" }
+    { text: "Building digital solutions that ", highlight: "grow your business" },
+    { text: "Transforming ideas into ", highlight: "profitable web applications" },
+    { text: "Reliable technology that ", highlight: "scales with your growth" },
+    { text: "Your vision, our expertise - ", highlight: "powerful web solutions" }
   ];
 
-  // Typing animation
   useEffect(() => {
     if (currentIndex < fullText.length) {
       const timeout = setTimeout(() => {
@@ -29,54 +30,55 @@ const Hero = ({ scrollToSection }) => {
     }
   }, [currentIndex]);
 
-  // Rotating taglines
   useEffect(() => {
     if (isTypingComplete) {
       const interval = setInterval(() => {
         setCurrentTaglineIndex((prev) => (prev + 1) % taglines.length);
-      }, 3500); // Change every 3.5 seconds
+      }, 3500);
       return () => clearInterval(interval);
     }
   }, [isTypingComplete]);
 
   return (
-   <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden bg-white dark:bg-gray-900">
-      {/* Simple Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Profile Photo - Subtle, Faded, Left Side */}
-        <div className="absolute left-0 top-0 bottom-0 w-1/2 opacity-40 dark:opacity-25">
-          <img 
-            src="/images/profile.jpg" 
-            alt="Augustine" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-50/60 to-purple-50 dark:from-transparent dark:via-gray-900/70 dark:to-gray-900"></div>
-        </div>
-        
-        {/* Gradient Blobs */}
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-pink-400 to-rose-400 rounded-full blur-3xl opacity-20 -top-48 -left-48"></div>
-        <div className="absolute w-[600px] h-[600px] bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-3xl opacity-20 -bottom-48 -right-48"></div>
-        <div className="absolute w-[400px] h-[400px] bg-gradient-to-r from-purple-400 to-violet-400 rounded-full blur-3xl opacity-15 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center px-6 py-20 relative"
+      style={{ 
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Dark overlay — makes image subtle, tweak opacity to taste */}
+      <div className="absolute inset-0 bg-black/65"></div>
+
+      {/* Gradient Blobs on top of overlay */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full blur-3xl opacity-10 -top-48 -left-48"></div>
+        <div className="absolute w-96 h-96 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-3xl opacity-10 -bottom-48 -right-48"></div>
+        <div className="absolute w-80 h-80 bg-gradient-to-r from-purple-400 to-violet-400 rounded-full blur-3xl opacity-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
-      {/* Main Content - Centered */}
-    <div className="max-w-5xl mx-auto relative z-0 w-full text-center">
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto relative z-10 w-full text-center">
+        
         {/* Typing Animation */}
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
             {typedText}
             {!isTypingComplete && <span className="animate-blink">|</span>}
           </h1>
         </div>
 
-        {/* Rotating Taglines - HUGE */}
+        {/* Rotating Taglines */}
         {isTypingComplete && (
           <div className="mb-8 min-h-[200px] md:min-h-[240px] flex items-center justify-center">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl">
-              <span className="text-gray-700 dark:text-gray-300 transition-all duration-700">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">
+              <span className="text-gray-200 transition-all duration-700">
                 {taglines[currentTaglineIndex].text}
               </span>
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent transition-all duration-700">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent transition-all duration-700">
                 {taglines[currentTaglineIndex].highlight}
               </span>
             </h2>
@@ -84,19 +86,19 @@ const Hero = ({ scrollToSection }) => {
         )}
 
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6 font-medium">
-          Full-Stack MERN Developer
+        <p className="text-xl md:text-2xl text-gray-300 mb-6 font-medium">
+          Web Development Solutions for Growing Businesses
         </p>
 
         {/* Brief Description */}
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          A freelance developer collaborating with businesses and startups to build exceptional web applications
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Founder of Synergy Consult - partnering with businesses to deliver custom web solutions using React, Node.js, and WordPress
         </p>
 
         {/* Status Badge */}
-        <div className="mb-10 inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-5 py-3 rounded-full text-base font-medium">
+        <div className="mb-10 inline-flex items-center gap-2 bg-green-900/40 text-green-400 px-5 py-3 rounded-full text-base font-medium border border-green-700/40">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-          Available for freelance projects
+          Ready to grow your business together
         </div>
 
         {/* CTA Buttons */}
@@ -105,29 +107,27 @@ const Hero = ({ scrollToSection }) => {
             onClick={() => scrollToSection('contact')}
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg"
           >
-            Start a Project
+            Let's Discuss Your Needs
           </button>
           <button
-           onClick={() => scrollToSection('work')}
-            className="border-2 border-gray-300 dark:border-gray-600 hover:border-purple-500 dark:hover:border-purple-500 text-gray-800 dark:text-white px-10 py-5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
+            onClick={() => scrollToSection('work')}
+            className="border-2 border-white/30 hover:border-purple-400 text-white px-10 py-5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 backdrop-blur-sm"
           >
-            View My Work
+            View Our Work
           </button>
         </div>
 
         {/* Scroll Indicator */}
         <div className="animate-bounce">
-          <ArrowDown className="text-gray-400 dark:text-gray-600 mx-auto" size={32} />
+          <ArrowDown className="text-gray-400 mx-auto" size={32} />
         </div>
       </div>
 
-      {/* Animations */}
       <style>{`
         @keyframes blink {
           0%, 49% { opacity: 1; }
           50%, 100% { opacity: 0; }
         }
-        
         .animate-blink {
           animation: blink 1s infinite;
         }
