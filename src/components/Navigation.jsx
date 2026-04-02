@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import logo from '../assets/synergylogo.png';
 
 const Navigation = ({ activeSection, scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +45,11 @@ const Navigation = ({ activeSection, scrollToSection }) => {
           onClick={() => scrollToSection('home')}
           className="text-2xl font-bold hover:scale-105 transition-transform"
         >
-          <span className="text-gray-900 dark:text-white">Augustine</span>
+       <img 
+  src={logo} 
+  alt="Augustine Logo" 
+  className="h-10 md:h-12 w-auto object-contain hover:scale-110 transition-transform duration-300 hover:rotate-3"
+/>
         </button>
 
         {/* Desktop Menu */}
