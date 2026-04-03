@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -14,29 +14,47 @@ import WhatsAppButton from './components/WhatsAppButton';
 function App() {
   const [activeSection, setActiveSection] = useState('home');
 
-  // Switch to section (no scrolling needed)
   const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    // Scroll to top when changing sections
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }
   };
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'introduction', 'services', 'skills', 'work', 'contact'];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
         <Navigation activeSection={activeSection} scrollToSection={scrollToSection} />
-        
-        {/* Conditionally render ONLY the active section */}
-        {activeSection === 'home' && <Hero scrollToSection={scrollToSection} />}
-        {activeSection === 'introduction' && <Introduction />}
-        {activeSection === 'services' && <Services />}
-        {activeSection === 'skills' && <Skills />}
-        {activeSection === 'work' && <Work />}
-        {activeSection === 'contact' && <Contact />}
-        
+
+        {/* All sections visible at once — proper single-page layout */}
+        <Hero scrollToSection={scrollToSection} />
+        <Introduction />
+        <Services />
+        <Skills />
+        <Work />
+        <Contact />
+
         <Footer scrollToSection={scrollToSection} />
-        
-        {/* Floating WhatsApp Button */}
         <WhatsAppButton />
       </div>
     </ThemeProvider>
