@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Mail, Linkedin, Github, Send, Download } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import socialLinks from '../data/socialLinks';
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
