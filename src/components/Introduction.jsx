@@ -1,7 +1,7 @@
 // src/components/Introduction.jsx
 import React from 'react';
 import { Sparkles } from 'lucide-react';
-import profilePhoto from '../assets/profile3.png';
+import profilePhoto from '../assets/Profile3.png';
 
 const Introduction = () => {
   return (
@@ -22,28 +22,31 @@ const Introduction = () => {
         {/* Content - Photo + Text side by side */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-10">
 
-        <div className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 overflow-hidden">
-  <img
-    src={profilePhoto}
-    alt="Augustine"
-    className="w-full h-full rounded-2xl object-cover object-top shadow-xl border-4 border-white dark:border-gray-700"
-  />
-</div>
+          {/* Bio Photo */}
+          <div className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 overflow-hidden">
+            <img
+              src={profilePhoto}
+              alt="Augustine"
+              className="w-full h-full rounded-2xl object-cover object-top shadow-xl border-4 border-white dark:border-gray-700"
+            />
+          </div>
 
           {/* Text */}
           <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
             <p>
               I'm a web developer based in{" "}
-              <span className="text-gray-900 dark:text-white font-medium">Lagos, Nigeria</span>
-              , focused on building modern, reliable web solutions for businesses and startups. I help turn ideas into functional digital products that support growth, efficiency, and long-term success.
+              <span className="text-gray-900 dark:text-white font-medium">Nigeria</span>
+              , specializing in building modern, high-performance web solutions for businesses and startups. I transform complex ideas into clean, scalable digital products that drive real growth and deliver measurable results.
             </p>
             <p>
-              I'm passionate about creating{" "}
-              <span className="text-gray-900 dark:text-white font-medium">clean, maintainable solutions</span>{" "}
-              and user experiences that are both intuitive and purposeful. Every project is approached with a business-first mindset.
+              With a sharp focus on{" "}
+              <span className="text-gray-900 dark:text-white font-medium">quality, performance, and user experience</span>
+              , I approach every project with a business-first mindset. Whether it's establishing a powerful online presence, streamlining workflows, or launching a product — I build solutions that work as hard as you do.
             </p>
             <p>
-              As the founder of Synergy Consult, I work closely with clients to deliver custom web solutions using React, Node.js, and WordPress.
+              As the founder of{" "}
+              <span className="text-gray-900 dark:text-white font-medium">Synergy Consult</span>
+              , I partner with clients to deliver tailored web solutions using React, Node.js, and WordPress. I don't just write code — I build digital assets that create lasting value for your business.
             </p>
           </div>
         </div>

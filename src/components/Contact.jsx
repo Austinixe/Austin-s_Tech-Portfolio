@@ -179,7 +179,7 @@ const Contact = () => {
                   required
                   disabled={isSubmitting}
                   className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50"
-                  placeholder="Your name"
+                  placeholder="Augustine"
                 />
               </div>
 
