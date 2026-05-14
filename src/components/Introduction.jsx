@@ -1,7 +1,7 @@
 // src/components/Introduction.jsx
 import React from 'react';
 import { Sparkles } from 'lucide-react';
-import profilePhoto from '../assets/Profile3.png';
+import profilePhoto from '../assets/profile3.png';
 
 const Introduction = () => {
   return (
