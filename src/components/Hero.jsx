@@ -8,14 +8,14 @@ const Hero = ({ scrollToSection }) => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
   
-  const fullText = "Hi, I'm Augustine";
+  const fullText = "Hi, I'm Augustine — Frontend Developer";
   
-  const taglines = [
-    { text: "Building digital solutions that ", highlight: "grow your business" },
-    { text: "Transforming ideas into ", highlight: "profitable web applications" },
-    { text: "Reliable technology that ", highlight: "scales with your growth" },
-    { text: "Your vision, our expertise - ", highlight: "powerful web solutions" }
-  ];
+ const taglines = [
+  { text: "I build ", highlight: "modern responsive websites" },
+  { text: "I turn ideas into ", highlight: "working web applications" },
+  { text: "I create solutions that help ", highlight: "businesses grow online" },
+  { text: "Clean code. Better UX. ", highlight: "Real results" }
+];
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -82,19 +82,19 @@ const Hero = ({ scrollToSection }) => {
         )}
 
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6 font-medium">
-          Web Development Solutions for Growing Businesses
-        </p>
+       <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6 font-medium">
+  Frontend Developer focused on building responsive and user-friendly web applications
+</p>
 
         {/* Brief Description */}
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Founder of Synergy Consult - partnering with businesses to deliver custom web solutions using React, Node.js, and WordPress
+         I help businesses and individuals build modern web experiences using HTML, CSS, JavaScript, and React. Currently focused on frontend development and real-world projects.
         </p>
 
         {/* Status Badge */}
         <div className="mb-10 inline-flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-5 py-3 rounded-full text-base font-medium">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-          Ready to grow your business together
+        Available for freelance and remote opportunities
         </div>
 
         {/* CTA Buttons */}
@@ -103,13 +103,13 @@ const Hero = ({ scrollToSection }) => {
             onClick={() => scrollToSection('contact')}
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg"
           >
-            Let's Discuss Your Needs
+            Let's Work Together
           </button>
           <button
             onClick={() => scrollToSection('work')}
             className="border-2 border-gray-300 dark:border-gray-600 hover:border-purple-500 dark:hover:border-purple-500 text-gray-800 dark:text-white px-10 py-5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
           >
-            View Our Work
+            View Projects
           </button>
         </div>
 

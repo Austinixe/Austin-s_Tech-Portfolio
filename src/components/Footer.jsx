@@ -19,7 +19,7 @@ const Footer = ({ scrollToSection }) => {
               <span> Consult</span>
             </h3>
             <p className="text-gray-400 mb-4">
-              Full-Stack MERN Development Agency building exceptional web applications
+               Frontend Developer building responsive and modern web applications
             </p>
             
             {/* Address */}
@@ -112,11 +112,11 @@ const Footer = ({ scrollToSection }) => {
               </li>
               <li>
                 <a
-                  href="/resume/Austine's Resume - for merge.pdf"
+                  href="/resume/resume-augustine.pdf"
                   download="Augustine-Resume.pdf"
                   className="text-gray-400 hover:text-white transition-colors inline-block"
                 >
-                  Download CV
+                  Download Resume
                 </a>
               </li>
             </ul>
@@ -131,7 +131,7 @@ const Footer = ({ scrollToSection }) => {
             {/* Availability Badge */}
             <div className="inline-flex items-center gap-2 bg-green-900/30 text-green-400 px-4 py-2 rounded-full text-sm">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              Available for projects
+              Available for freelance & remote opportunities
             </div>
           </div>
         </div>
